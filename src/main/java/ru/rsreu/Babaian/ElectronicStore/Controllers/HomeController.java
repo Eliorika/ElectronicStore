@@ -1,4 +1,4 @@
-package ru.rsreu.Babaian.ElectronicStore;
+package ru.rsreu.Babaian.ElectronicStore.Controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    /* Обрабатывает запросы корневого пути */
     public String home() {
         return "home"; /* Возвращает имя представления */
     }
