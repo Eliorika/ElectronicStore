@@ -1,4 +1,4 @@
-package ru.rsreu.Babaian.ElectronicStore;
+package ru.rsreu.Babaian.ElectronicStore.Controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -15,4 +15,6 @@ public class HomeController {
     public String home() {
         return "home"; /* Возвращает имя представления */
     }
+
+
 }
