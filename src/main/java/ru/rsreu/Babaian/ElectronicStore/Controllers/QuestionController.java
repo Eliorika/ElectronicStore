@@ -27,7 +27,7 @@ public class QuestionController {
     public String showTest(Model model){
 //        model.addAttribute("answersLog", new AnswersLog());
 //        model.addAttribute("questions", iQuestionRepository.findAll());
-git         return "questions";
+          return "questions";
     }
 
     @ModelAttribute
@@ -43,6 +43,7 @@ git         return "questions";
 
         answersLog.setAnsweredAt(new Date());
         iAnswerLogRepository.save(answersLog);
+
         if(answersLog.validate())
             return "success";
         else return "fail";

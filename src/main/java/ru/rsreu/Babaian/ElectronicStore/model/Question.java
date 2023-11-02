@@ -1,14 +1,24 @@
 package ru.rsreu.Babaian.ElectronicStore.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
-@Data
-@RequiredArgsConstructor
+@Setter
+@Getter
+@NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "questions")
 public class Question {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(columnDefinition = "varchar")
     private String question;
+
+    @Column(columnDefinition = "varchar")
     private String answer;
 }
