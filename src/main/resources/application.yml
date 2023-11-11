@@ -7,3 +7,7 @@ spring:
     name : ChineseCourse
     username:
     password:
+
+logging:
+  level:
+    org.springframework: DEBUG

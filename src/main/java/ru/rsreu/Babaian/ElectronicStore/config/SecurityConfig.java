@@ -1,42 +1,85 @@
 package ru.rsreu.Babaian.ElectronicStore.config;
 
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import ru.rsreu.Babaian.ElectronicStore.repo.IUserRepo;
+import ru.rsreu.Babaian.ElectronicStore.services.UserRepositoryUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@AllArgsConstructor
+public class SecurityConfig {
+
+    private UserDetailsService userDetailsService;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    protected SecurityFilterChain configureHttp(HttpSecurity http) throws Exception {
+//        http.formLogin(formLogin ->
+//                formLogin
+//                        .loginPage("/registration")
+//                        .permitAll()
+//        ).logout(logout ->
+//                logout
+//                        .logoutUrl("/logout")
+//                        .permitAll()
+//        ).authorizeRequests(authorizeRequests ->
+//                authorizeRequests
+//                        .anyRequest().authenticated()
+//        );
 
-
-    @Bean
-    protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin(formLogin ->
-                formLogin
+        http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/", "/registration").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
-        ).logout(logout ->
-                logout
-                        .logoutUrl("/logout")
-                        .permitAll()
-        ).authorizeRequests(authorizeRequests ->
-                authorizeRequests
-                        .anyRequest().authenticated()
-        );
+                )
+                .logout((logout) -> logout.permitAll());
+
+        return http.build();
+    }
+
+//    @Bean
+//    protected AuthenticationManager configureAuth(AuthenticationManagerBuilder auth)
+//            throws Exception {
+//
+//        auth
+//                .userDetailsService(userDetailsService)
+//                .passwordEncoder(encoder());
+//
+//        return auth.build();
+//
+//    }
+
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user =
+//                User.withDefaultPasswordEncoder()
+//                        .username("user")
+//                        .password("password")
+//                        .roles("USER")
+//                        .build();
+//
+//        return new UserRepositoryUserDetailsService();
+//    }
+
+    @Bean
+    public PasswordEncoder encoder() {
+        return new StandardPasswordEncoder("53cr3t");
     }
 
 }

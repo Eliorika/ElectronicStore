@@ -1,6 +1,5 @@
 package ru.rsreu.Babaian.ElectronicStore.converter;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

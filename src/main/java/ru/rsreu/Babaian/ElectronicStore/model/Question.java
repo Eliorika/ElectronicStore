@@ -1,8 +1,8 @@
 package ru.rsreu.Babaian.ElectronicStore.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
 
 @Setter
 @Getter

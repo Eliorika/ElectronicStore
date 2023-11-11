@@ -1,6 +1,5 @@
 package ru.rsreu.Babaian.ElectronicStore.Controllers;
 
-
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
