@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Java Application</title>
+</head>
+
+<body>
+
+<!--<form th:action="@{/registration/auth}" method="post">-->
+<!--    <h2>Авторизация</h2>-->
+<!--    <label for="login">Login:</label>-->
+<!--    <input type="text" id="login" name="login" required>-->
+
+<!--    <label for="password">Пароль:</label>-->
+<!--    <input type="password" id="passwordLog" name="password" required>-->
+
+<!--    <button type="submit">Войти</button>-->
+<!--</form>-->
+
+<form th:action="@{/registration}" method="post" th:object="${userRegReq}">
+    <h2>Регистрация</h2>
+    <label for="username">Login: </label>
+    <input type="text" id="username" name="username" required th:field="*{login}">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required th:field="*{password}">
+
+    <button type="submit">Sign up</button>
+</form>
+</body>
+</html>
