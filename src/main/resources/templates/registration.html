@@ -23,9 +23,27 @@
     <label for="username">Login: </label>
     <input type="text" id="username" name="username" required th:field="*{login}">
 
+    <span class="validationError"
+          th:if="${#fields.hasErrors('login')}"
+          th:errors="*{login}">Ошибка!</span>
+    <br>
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required th:field="*{email}">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"></span>
+    <br>
+    <br>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required th:field="*{password}">
-
+    <br>
+    <label for="confirm">Confirm:</label>
+    <input type="password" id="confirm" name="confirm" required th:field="*{passwordRepeat}">
+    <div th:if="${#fields.hasGlobalErrors()}" class="validationError">
+        <span th:text="${#fields.globalErrors()[0]}"></span>
+    </div>
+    <br><br>
     <button type="submit">Sign up</button>
 </form>
 </body>

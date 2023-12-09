@@ -23,6 +23,11 @@ public class LoginController {
         return "home";
     }
 
+//    @GetMapping("/reg")
+//    public String goToReg(){
+//        return "redirect:registration";
+//    }
+
 //    @ModelAttribute
 //    public void addQuestionsToModel(Model model){
 //        model.addAttribute("userRegReq", new RegistrationUserRequest());

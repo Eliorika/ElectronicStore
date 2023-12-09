@@ -26,22 +26,9 @@ public class SecurityConfig {
 
     @Bean
     protected SecurityFilterChain configureHttp(HttpSecurity http) throws Exception {
-//        http.formLogin(formLogin ->
-//                formLogin
-//                        .loginPage("/registration")
-//                        .permitAll()
-//        ).logout(logout ->
-//                logout
-//                        .logoutUrl("/logout")
-//                        .permitAll()
-//        ).authorizeRequests(authorizeRequests ->
-//                authorizeRequests
-//                        .anyRequest().authenticated()
-//        );
-
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/registration").permitAll()
+                        .requestMatchers("/login", "/registration", "/reg").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

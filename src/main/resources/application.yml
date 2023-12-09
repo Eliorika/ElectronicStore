@@ -3,11 +3,28 @@ server:
 
 spring:
   datasource:
-    generate-unique-name: false
-    name : ChineseCourse
-    username:
-    password:
+    url: jdbc:postgresql://localhost:5432/chineese_course
+    username: arina
+    driver-class-name: org.postgresql.Driver
+    password: "0000"
+  jpa:
+    hibernate:
+      ddl-auto: none
+      format-sql: true
+      connection:
+        url: jdbc:postgresql://localhost:5432/chineese_course
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: always
+
+
+
 
 logging:
   level:
-    org.springframework: DEBUG
+    org.springframework: info

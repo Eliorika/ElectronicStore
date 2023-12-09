@@ -24,9 +24,9 @@ public class ChineseCourseApplication {
 	@Bean
 	public ApplicationRunner dataLoader(IQuestionRepository questionRepo, IUserRepo userRepo) {
 		return args -> {
-			questionRepo.save(new Question(1L, "How do you say \"hello\" in Chinese?", "你好"));
-			questionRepo.save(new Question(2L, "How do you say \"goodbye\" in Chinese?", "再见"));
-			userRepo.save(new User(1l, "admin", passwordEncoder.encode("0000")));
+			//questionRepo.save(new Question(1L, "How do you say \"hello\" in Chinese?", "你好"));
+			//questionRepo.save(new Question(2L, "How do you say \"goodbye\" in Chinese?", "再见"));
+			userRepo.save(new User(1l, "admin", passwordEncoder.encode("0000"), "a@a.com"));
 		};
 	}
 }

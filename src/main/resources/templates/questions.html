@@ -16,14 +16,14 @@
 <!--            <option value="q1">How do you say "hello" in Chinese?</option>-->
 <!--            <option value="q2">How do you say "goodbye" in Chinese?</option>-->
 <!--        </select>-->
-        <select id="question" name="question" th:object="${answersLog}">
-            <option value=" "></option>
+        <select id="question" name="question_id" th:object="${answersLog}">
+<!--            <option value=" "></option>-->
             <option th:each="question :${questions}" th:value="${question.id}" th:text="${question.question}"></option>
         </select>
 
         <span class="validationError"
-              th:if="${#fields.hasErrors('question')}"
-              th:errors="*{question}">CHOOSE QUESTION</span>
+              th:if="${#fields.hasErrors('question_id')}"
+              th:errors="*{question_id}">CHOOSE QUESTION</span>
         <br>
 
         <label for="answer">Your Answer:</label>
