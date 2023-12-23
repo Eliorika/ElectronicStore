@@ -1,1 +1,1 @@
-insert into users values (2, 'user', 'afc2eededebb8a15d6a5904543ca112b1c5cd5598c6b1361d8eec99607626144fcf1cca3b3a41e8a');
+insert into users values (2,'asdfghjkl', 'user', 'afc2eededebb8a15d6a5904543ca112b1c5cd5598c6b1361d8eec99607626144fcf1cca3b3a41e8a');

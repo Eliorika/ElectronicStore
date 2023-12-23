@@ -7,4 +7,6 @@ import ru.rsreu.Babaian.ElectronicStore.model.User;
 @Repository
 public interface IUserRepo extends JpaRepository<User, Long> {
     User findByLogin(String login);
+
+
 }

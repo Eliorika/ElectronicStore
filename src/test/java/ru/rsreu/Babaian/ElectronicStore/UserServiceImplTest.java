@@ -31,7 +31,8 @@ public class UserServiceImplTest {
     @Autowired
     private UserServiceImpl userService;
 
-    private RegistrationUserRequest req = new RegistrationUserRequest("login", "a@a.com", "password", "password");
+
+    private RegistrationUserRequest req = new RegistrationUserRequest("login", "b@a.com", "password", "password");
 
     @Transactional
     @Rollback
